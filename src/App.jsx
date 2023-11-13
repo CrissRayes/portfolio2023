@@ -15,17 +15,17 @@ function App() {
   return (
     <div className='container'>
       {/* Icons Start */}
-      <div>
-        <FaGithub />
-        <FaLinkedin />
-        <FaWhatsapp />
+      <div className='navigation'>
+        <FaGithub className='icon' />
+        <FaLinkedin className='icon' />
+        <FaWhatsapp className='icon' />
       </div>
       {/* Icons End */}
 
       {/* Titles Start */}
-      <div>
+      <div className='header'>
         <span>Hi!</span>
-        <h1>{"I'm CrissRayes.dev"}</h1>
+        <h1>{"I'm Criss"}</h1>
         <h2>Full Stack Web Developer</h2>
         <span>
           {
@@ -36,7 +36,7 @@ function App() {
       {/* Titles End */}
 
       {/* Profile Start */}
-      <div>
+      <div className='about'>
         <h2>About</h2>
         <p>
           My name is Cristian Ramírez, I&apos;m full stack web developer based
@@ -53,31 +53,32 @@ function App() {
       {/* Profile End */}
 
       {/* Tools Start */}
-      <div>
-        <h2>Tools</h2>
-        <div>
-          <FaReact />
-          <span>React</span>
-        </div>
-        <div>
-          <FaJs />
-          <span>JavaScript</span>
-        </div>
-        <div>
-          <FaNodeJs />
-          <span>NodeJS</span>
-        </div>
-        <div>
-          <FaDatabase />
-          <span>PostgreSQL</span>
-        </div>
-        <div>
-          <FaFigma />
-          <span>Figma</span>
-        </div>
-        <div>
-          <FaSass />
-          <span>Sass</span>
+      <div className='tools'>
+        <div className='tools-icons'>
+          <div className='tools-icon'>
+            <FaReact className='tools-icon__fa' />
+            <span className='tools-icon__name'>React</span>
+          </div>
+          <div className='tools-icon'>
+            <FaJs className='tools-icon__fa' />
+            <span className='tools-icon__name'>JavaScript</span>
+          </div>
+          <div className='tools-icon'>
+            <FaNodeJs className='tools-icon__fa' />
+            <span className='tools-icon__name'>NodeJS</span>
+          </div>
+          <div className='tools-icon'>
+            <FaDatabase className='tools-icon__fa' />
+            <span className='tools-icon__name'>PostgreSQL</span>
+          </div>
+          <div className='tools-icon'>
+            <FaFigma className='tools-icon__fa' />
+            <span className='tools-icon__name'>Figma</span>
+          </div>
+          <div className='tools-icon'>
+            <FaSass className='tools-icon__fa' />
+            <span className='tools-icon__name'>Sass</span>
+          </div>
         </div>
       </div>
       {/* Tools End */}
