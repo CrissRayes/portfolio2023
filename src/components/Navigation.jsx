@@ -1,14 +1,25 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Navigation = () => {
+  const linkActivo = ({ isActive }) => (isActive ? 'active' : '');
   return (
     <nav>
       <ul>
         <li>
-          <Link to='/'>About</Link>
+          <NavLink
+            to='/'
+            className={linkActivo}
+          >
+            About
+          </NavLink>
         </li>
         <li>
-          <Link to='/projects'>Projects</Link>
+          <NavLink
+            to='/projects'
+            className={linkActivo}
+          >
+            Projects
+          </NavLink>
         </li>
       </ul>
     </nav>

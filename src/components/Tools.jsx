@@ -11,6 +11,7 @@ import { ToolCard } from './ToolCard';
 export const Tools = () => {
   return (
     <div className='tools'>
+      {/* <h3>Technologies</h3> */}
       <div className='tools-icons'>
         <ToolCard
           icon={FaReact}

@@ -3,16 +3,17 @@ import { Navigation } from './components/Navigation';
 import { Social } from './components/Social';
 import { Header } from './components/Header';
 import { About } from './views/About';
-import { Tools } from './components/Tools';
 import { Projects } from './views/Projects';
 import { Footer } from './components/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Synaptech } from './components/Synaptech';
+import { Vernux } from './components/Vernux';
+import { Urbanus } from './components/Urbanus';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className='container'>
+    <div className='container'>
+      <BrowserRouter>
         <Social />
         <Navigation />
         <Header />
@@ -31,17 +32,17 @@ function App() {
               element={<Synaptech />}
             />
             <Route
-              path='proyecto2'
-              element={<h1>Proyecto 2</h1>}
+              path='vernux'
+              element={<Vernux />}
             />
             <Route
-              path='proyecto3'
-              element={<h1>Proyecto 3</h1>}
+              path='urbanus'
+              element={<Urbanus />}
             />
-            <Route
+            {/* <Route
               path='proyecto4'
               element={<h1>Proyecto 4</h1>}
-            />
+            /> */}
           </Route>
           {/* Ruta proyectos anidados End */}
           <Route
@@ -49,10 +50,9 @@ function App() {
             element={<h1>404</h1>}
           />
         </Routes>
-        <Tools />
         <Footer />
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 
