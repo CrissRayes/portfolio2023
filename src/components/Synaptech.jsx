@@ -1,16 +1,44 @@
 import { FaGlobe } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
+import useImageLoader from '../hooks/useImageLoader';
+import { SkeletonLoader } from './SkeletonLoader';
+
 export const Synaptech = () => {
+  const imageUrls = ['/img/synaptech-web.png'];
+  const imagesLoaded = useImageLoader(imageUrls);
   return (
     <div className='project-detail'>
-      <img
-        className='project-img'
-        src='/img/synaptech-web.png'
-        alt='Synaptech'
-        onClick={() => {
-          window.open('https://www.synaptech.cl', '_blank');
-        }}
-      />
+      <div>
+        {imageUrls.map((url, index) => (
+          <div
+            key={index}
+            className='image-container'
+          >
+            {!imagesLoaded[index] && (
+              <SkeletonLoader
+                width={300}
+                height={200}
+                borderRadius={5}
+                backgroundColor={'#f0f0f0'}
+                marginBottom={0}
+                onClick={() => {
+                  window.open('https://www.synaptech.cl', '_blank');
+                }}
+              />
+            )}
+            <img
+              className='project-img'
+              style={{ display: imagesLoaded[index] ? 'block' : 'none' }}
+              src={url}
+              alt={`Image ${index + 1}`}
+              onClick={() => {
+                window.open('https://www.synaptech.cl', '_blank');
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
       <div>
         <h3>About</h3>
         <p>
