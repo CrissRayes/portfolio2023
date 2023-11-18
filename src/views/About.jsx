@@ -7,16 +7,16 @@ export const About = () => {
       <div className='about-content'>
         <p>
           My name is Cristian Ramírez, I&apos;m full stack web developer based
-          in Dublin, Ireland. I have been designing and developing web
+          in Rancagua, Chile. I have been designing and developing web
           applications for over 4 years. I began my career as a freelancer and
           later I worked for a software development company as a frontend
           developer.
         </p>
         <p>
-          My knowledge and expertise are result of my passion for self-learning,
-          practical experience and completion of two full stack web development
-          bootcamps. I&apos;m committed to continuous learning and have a
-          natural ability to collaborate effectively in multidisciplinary teams.
+          My knowledge and expertise are result of my passion for learning and
+          practical experience. I&apos;m committed to continuous learning and
+          have a natural ability to collaborate effectively in multidisciplinary
+          teams.
         </p>
         <p>
           My commitment to my clients and my projects is constant, and I always
