@@ -6,11 +6,14 @@ const useImageLoader = (imageUrls) => {
   );
 
   useEffect(() => {
+    let isMounted = true;
+
     const loadImage = (index) => {
       const img = new Image();
       img.src = imageUrls[index];
 
       img.onload = () => {
+        if (!isMounted) return; // Avoid memory leak
         setImagesLoaded((prev) => {
           const newImagesLoaded = [...prev];
           newImagesLoaded[index] = true;
@@ -19,6 +22,7 @@ const useImageLoader = (imageUrls) => {
       };
 
       return () => {
+        isMounted = false;
         img.onload = null;
       };
     };
