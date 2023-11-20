@@ -342,6 +342,10 @@ ul {
   @include left-bar($green-color);
 }
 
+.light .about {
+  @include left-bar($blue-color-light);
+}
+
 //******* Projects ********/
 .projects {
   display: flex;
