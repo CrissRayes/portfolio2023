@@ -12,7 +12,7 @@ export const Vernux = () => {
           window.open('https://crissrayes.github.io/vernux', '_blank');
         }}
       />
-      <div>
+      <div className='project-detail-container'>
         <h3>About</h3>
         <p>
           Vernux is a custom furniture company located in Chile. This project
@@ -27,13 +27,12 @@ export const Vernux = () => {
         </div>
         <div className='project-icon'>
           <FaGlobe />
-          WebSite
           <NavLink
             to='https://crissrayes.github.io/vernux'
             target='_blank'
             rel='noreferrer'
           >
-            https://crissrayes.github.io/vernux
+            View Project
           </NavLink>
         </div>
       </div>

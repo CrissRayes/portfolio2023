@@ -12,7 +12,7 @@ export const Urbanus = () => {
           window.open('https://crissrayes.github.io/webUrbanus', '_blank');
         }}
       />
-      <div>
+      <div className='project-detail-container'>
         <h3>About</h3>
         <p>
           Urbanus is a real estate company located in Chile. This project
@@ -27,13 +27,12 @@ export const Urbanus = () => {
         </div>
         <div className='project-icon'>
           <FaGlobe />
-          WebSite
           <NavLink
             to='https://crissrayes.github.io/webUrbanus'
             target='_blank'
             rel='noreferrer'
           >
-            https://crissrayes.github.io/webUrbanus
+            View Project
           </NavLink>
         </div>
       </div>

@@ -1,8 +1,11 @@
 /******* Variables *******/
 $blue-color: #0f182b;
+$blue-color-light: #006cac;
 $green-color: #75df7d;
-$font-color: #ffffff;
-$background-color: #252327;
+$font-color-dark: #ffffff;
+$font-color-light: #000000;
+$background-dark: #252327;
+$background-light: #ffffff;
 
 /******* Mixins *******/
 @mixin left-bar($bar-color) {
@@ -32,6 +35,18 @@ $background-color: #252327;
   }
 }
 
+@mixin transition(
+  $property: all,
+  $duration: 0.45s,
+  $ease: cubic-bezier(0.65, 0, 0.076, 1)
+) {
+  transition: $property $duration $ease;
+}
+
+// mixin for link styles
+@mixin link-styles {
+}
+
 /******* Reset *******/
 *,
 *::before,
@@ -50,10 +65,73 @@ html {
 }
 
 body {
-  background-color: $background-color;
-  color: $font-color;
   font-family: 'Quicksand', sans-serif;
   font-size: 1.6rem;
+}
+
+.light {
+  background-color: $background-light;
+  color: $font-color-light;
+
+  @include link-styles;
+
+  & a {
+    color: $font-color-light;
+    // @include link-styles;
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $blue-color-light;
+      transition: width 0.3s ease-in-out;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+  & .active {
+    // @include active-link;
+    color: $blue-color-light;
+    font-weight: 700;
+  }
+}
+
+.dark {
+  background-color: $background-dark;
+  color: $font-color-dark;
+
+  @include link-styles;
+  & a {
+    color: $font-color-dark;
+    // @include link-styles;
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $green-color;
+      transition: width 0.3s ease-in-out;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+  & .active {
+    // @include active-link;
+    color: $green-color;
+    font-weight: 700;
+  }
 }
 
 h1 {
@@ -83,8 +161,11 @@ p {
   line-height: 1.5;
   margin-bottom: 2rem;
 }
+.light .text-subtitle {
+  color: $blue-color-light;
+}
 
-.text-green {
+.text-subtitle {
   color: $green-color;
 }
 
@@ -129,33 +210,28 @@ ul {
   }
 }
 
-/******* Links *******/
-a {
-  position: relative;
-  text-decoration: none;
-  color: $font-color;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: $green-color;
-    transition: width 0.3s ease-in-out;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
-}
-.active {
-  color: $green-color;
-  font-weight: 700;
-}
-
 /******* Navigation *******/
+
+.light .rrss {
+  & ul li a {
+    background-color: #262626;
+    border-color: #262626;
+    & .icon {
+      color: #ffffff;
+    }
+  }
+}
+
+.dark .rrss {
+  & ul li a {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    & .icon {
+      color: #262626;
+    }
+  }
+}
+
 .rrss {
   display: flex;
   justify-content: end;
@@ -163,13 +239,72 @@ a {
   gap: 20px;
   padding: 20px 0;
 
-  & .icon {
-    font-size: 3rem;
-    cursor: pointer;
+  & ul li a {
+    width: 50px;
+    height: 50px;
+    // background-color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid;
+    z-index: 1;
 
-    &:hover {
-      color: $green-color;
+    & .icon {
+      position: relative;
+      color: #262626;
+      transition: 0.5s;
+      z-index: 3;
     }
+
+    &:hover .icon {
+      color: #fff;
+      transform: rotateY(360deg);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: 0.5s;
+      z-index: 2;
+    }
+
+    &:hover::before {
+      top: 0;
+    }
+  }
+
+  & ul li:nth-child(1) a::before {
+    background: $green-color;
+  }
+
+  & ul li:nth-child(2) a::before {
+    background: $green-color;
+  }
+
+  & ul li:nth-child(3) a::before {
+    background: $green-color;
+  }
+}
+
+.light .rrss {
+  & ul li:nth-child(1) a::before {
+    background: $blue-color-light;
+  }
+
+  & ul li:nth-child(2) a::before {
+    background: $blue-color-light;
+  }
+
+  & ul li:nth-child(3) a::before {
+    background: $blue-color-light;
   }
 }
 
@@ -189,6 +324,10 @@ a {
   }
 
   @include left-bar($green-color);
+}
+
+.light .header {
+  @include left-bar($blue-color-light);
 }
 
 /******* About ********/
@@ -215,6 +354,10 @@ a {
   @include left-bar($green-color);
 }
 
+.light .projects {
+  @include left-bar($blue-color-light);
+}
+
 .project {
   &-detail {
     margin-top: 2rem;
@@ -234,6 +377,12 @@ a {
     }
 
     @include scroll-bar;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 
   &-icon {
@@ -269,7 +418,15 @@ a {
   margin-bottom: 10px;
 }
 
+.light .pill {
+  background-color: $blue-color-light;
+  color: #ffffff;
+}
+
 //******* Tools ********/
+.light .tools-icon__fa {
+  color: $blue-color-light;
+}
 .tools {
   margin: 5rem 0;
 
@@ -285,6 +442,7 @@ a {
   }
 
   // icono
+
   &-icon {
     display: flex;
     flex-direction: column;

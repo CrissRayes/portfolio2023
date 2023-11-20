@@ -11,7 +11,7 @@ export const Synaptech = () => {
           window.open('https://www.synaptech.cl', '_blank');
         }}
       />
-      <div>
+      <div className='project-detail-container'>
         <h3>About</h3>
         <p>
           Synaptech is a software and web development company located in Chile.
@@ -30,13 +30,12 @@ export const Synaptech = () => {
         </div>
         <div className='project-icon'>
           <FaGlobe />
-          WebSite
           <NavLink
             to='https://www.synaptech.cl'
             target='_blank'
             rel='noreferrer'
           >
-            https://www.synaptech.cl
+            View Project
           </NavLink>
         </div>
       </div>
