@@ -6,17 +6,12 @@ import { useContext } from 'react';
 export const Navigation = () => {
   const linkActivo = ({ isActive }) => (isActive ? 'active' : '');
   const { theme, toggleTheme } = useContext(ThemeContext);
-
-  // useEffect(() => {
-  //   toggleTheme();
-  // }, []);
-
   const handleTheme = () => {
     toggleTheme();
   };
 
   return (
-    <nav>
+    <nav className='navigation'>
       <ul>
         <li>
           <NavLink
@@ -35,7 +30,10 @@ export const Navigation = () => {
           </NavLink>
         </li>
         <li>
-          <button onClick={handleTheme}>
+          <button
+            onClick={handleTheme}
+            className='button-theme'
+          >
             {theme === 'light' ? <FaMoon /> : <FaSun />}
           </button>
         </li>

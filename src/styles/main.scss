@@ -43,8 +43,51 @@ $background-light: #ffffff;
   transition: $property $duration $ease;
 }
 
-// mixin for link styles
-@mixin link-styles {
+// @mixin button-styles($color) {
+//   border-radius: 50px;
+//   padding: 5px 20px;
+//   border: 1px solid $color;
+//   background-color: $color;
+//   color: #fff;
+//   cursor: pointer;
+
+//   &:hover {
+//     background-color: darken($color, 10%);
+//   }
+
+//   &:active {
+//     background-color: darken($color, 20%);
+//   }
+// }
+
+@mixin icon-styles {
+  font-size: 24px;
+  color: #ffffff;
+  transition: all 0.5s ease;
+  z-index: 3;
+}
+
+@mixin link-styles($color) {
+  position: relative;
+  text-decoration: none;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color;
+    transition: width 0.3s ease-in-out;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin active-link($color) {
+  color: $color;
+  font-weight: 700;
 }
 
 /******* Reset *******/
@@ -69,68 +112,30 @@ body {
   font-size: 1.6rem;
 }
 
+/******* Theme Styles ********/
 .light {
   background-color: $background-light;
   color: $font-color-light;
-
-  @include link-styles;
-
+  @include link-styles($blue-color-light);
   & a {
     color: $font-color-light;
-    // @include link-styles;
-    position: relative;
-    text-decoration: none;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: $blue-color-light;
-      transition: width 0.3s ease-in-out;
-    }
-    &:hover::after {
-      width: 100%;
-    }
+    @include link-styles($blue-color-light);
   }
   & .active {
-    // @include active-link;
-    color: $blue-color-light;
-    font-weight: 700;
+    @include active-link($blue-color-light);
   }
 }
 
 .dark {
   background-color: $background-dark;
   color: $font-color-dark;
-
-  @include link-styles;
+  @include link-styles($green-color);
   & a {
     color: $font-color-dark;
-    // @include link-styles;
-    position: relative;
-    text-decoration: none;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: $green-color;
-      transition: width 0.3s ease-in-out;
-    }
-    &:hover::after {
-      width: 100%;
-    }
+    @include link-styles($green-color);
   }
   & .active {
-    // @include active-link;
-    color: $green-color;
-    font-weight: 700;
+    @include active-link($green-color);
   }
 }
 
@@ -167,23 +172,6 @@ p {
 
 .text-subtitle {
   color: $green-color;
-}
-
-.btn {
-  border-radius: 50px;
-  padding: 5px 20px;
-  border: 1px solid $blue-color;
-  background-color: $green-color;
-  color: #fff;
-  cursor: pointer;
-
-  &:hover {
-    background-color: darken($green-color, 10%);
-  }
-
-  &:active {
-    background-color: darken($green-color, 20%);
-  }
 }
 
 .container {
@@ -308,6 +296,35 @@ ul {
   }
 }
 
+/******* Navigation *******/
+
+.navigation li {
+  display: flex;
+  align-items: center;
+}
+
+.light .button-theme {
+  color: #000000;
+  &:hover {
+    color: $blue-color-light;
+  }
+}
+
+.button-theme {
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  &:hover {
+    color: $green-color;
+  }
+}
+
 /******* Header ********/
 .header {
   display: flex;
@@ -400,14 +417,6 @@ ul {
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s ease;
-    filter: grayscale(100%);
-    &:hover {
-      filter: grayscale(0%);
-    }
-
-    @media (max-width: 425px) {
-      filter: grayscale(0%);
-    }
   }
 }
 
