@@ -3,14 +3,16 @@ import { NavLink } from 'react-router-dom';
 export const Synaptech = () => {
   return (
     <div className='project-detail'>
-      <img
-        className='project-img'
-        src='/img/synaptech-web.png'
-        alt='Synaptech'
-        onClick={() => {
-          window.open('https://www.synaptech.cl', '_blank');
-        }}
-      />
+      <div>
+        <img
+          className='project-img'
+          src='/img/synaptech-web.png'
+          alt='Synaptech'
+          onClick={() => {
+            window.open('https://www.synaptech.cl', '_blank');
+          }}
+        />
+      </div>
       <div className='project-detail-container'>
         <h3>About</h3>
         <p>

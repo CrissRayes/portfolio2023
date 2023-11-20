@@ -4,14 +4,16 @@ import { NavLink } from 'react-router-dom';
 export const Vernux = () => {
   return (
     <div className='project-detail'>
-      <img
-        className='project-img'
-        src='/img/vernux-web.png'
-        alt='Vernux'
-        onClick={() => {
-          window.open('https://crissrayes.github.io/vernux', '_blank');
-        }}
-      />
+      <div>
+        <img
+          className='project-img'
+          src='/img/vernux-web.png'
+          alt='Vernux'
+          onClick={() => {
+            window.open('https://crissrayes.github.io/vernux', '_blank');
+          }}
+        />
+      </div>
       <div className='project-detail-container'>
         <h3>About</h3>
         <p>

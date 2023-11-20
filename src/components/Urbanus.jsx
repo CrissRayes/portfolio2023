@@ -4,14 +4,16 @@ import { NavLink } from 'react-router-dom';
 export const Urbanus = () => {
   return (
     <div className='project-detail'>
-      <img
-        className='project-img'
-        src='/img/urbanus-web.png'
-        alt='Urbanus'
-        onClick={() => {
-          window.open('https://crissrayes.github.io/webUrbanus', '_blank');
-        }}
-      />
+      <div>
+        <img
+          className='project-img'
+          src='/img/urbanus-web.png'
+          alt='Urbanus'
+          onClick={() => {
+            window.open('https://crissrayes.github.io/webUrbanus', '_blank');
+          }}
+        />
+      </div>
       <div className='project-detail-container'>
         <h3>About</h3>
         <p>

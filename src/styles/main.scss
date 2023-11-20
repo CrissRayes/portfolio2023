@@ -384,17 +384,10 @@ ul {
     margin-top: 2rem;
     height: auto;
     overflow: hidden;
-
-    // &__about {
     display: flex;
     gap: 20px;
     @media (max-width: 425px) {
       flex-wrap: wrap;
-    }
-    // }
-
-    & img {
-      margin-bottom: 1.5rem;
     }
 
     @include scroll-bar;
