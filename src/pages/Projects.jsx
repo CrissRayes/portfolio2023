@@ -13,23 +13,32 @@ export const Projects = () => {
             className={linkActivo}
             end
           >
-            Synaptech
+            Web Apps
           </NavLink>
         </li>
         <li>
           <NavLink
-            to='urbanus'
+            to='webs'
             className={linkActivo}
+            end
           >
-            Urbanus
+            Websites
           </NavLink>
         </li>
         <li>
           <NavLink
-            to='vernux'
+            to='apis'
             className={linkActivo}
           >
-            Vernux
+            Apis
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='games'
+            className={linkActivo}
+          >
+            Games & Misc
           </NavLink>
         </li>
       </ul>

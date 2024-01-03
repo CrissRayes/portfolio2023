@@ -2,15 +2,16 @@ import './App.css';
 import { Navigation } from './components/Navigation';
 import { Social } from './components/Social';
 import { Header } from './components/Header';
-import { About } from './views/About';
-import { Projects } from './views/Projects';
+import { About } from './pages/About';
+import { Projects } from './pages/Projects';
 import { Footer } from './components/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Synaptech } from './components/Synaptech';
-import { Vernux } from './components/Vernux';
-import { Urbanus } from './components/Urbanus';
 import { ThemeContext } from './context/ThemeContext';
 import { useContext } from 'react';
+import { WebSites } from './pages/WebSites';
+import { GameProjects } from './pages/GameProjects';
+import { ApiProjects } from './pages/ApiProjects';
+import { WebApps } from './pages/WebApps';
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -33,20 +34,20 @@ function App() {
             >
               <Route
                 index
-                element={<Synaptech />}
+                element={<WebApps />}
               />
               <Route
-                path='vernux'
-                element={<Vernux />}
+                path='webs'
+                element={<WebSites />}
               />
               <Route
-                path='urbanus'
-                element={<Urbanus />}
+                path='games'
+                element={<GameProjects />}
               />
-              {/* <Route
-              path='proyecto4'
-              element={<h1>Proyecto 4</h1>}
-            /> */}
+              <Route
+                path='apis'
+                element={<ApiProjects />}
+              />
             </Route>
             {/* Ruta proyectos anidados End */}
             <Route
