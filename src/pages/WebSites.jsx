@@ -1,26 +1,34 @@
+import { websites } from '../data/data';
+
 export const WebSites = () => {
   return (
     <div className='container-cards'>
-      <div className='card'>
-        <img
-          className='card-img'
-          src='/img/synaptech-web.png'
-          alt='Synaptech'
-          onClick={() => {
-            window.open('https://www.synaptech.cl', '_blank');
-          }}
-        />
-        <div className='card-content'>
-          <h3>Nombre Proyecto</h3>
-          <span className='pill'>React JS</span>
-          <span className='pill'>JavaScript</span>
-          <span className='pill'>Tailwind CSS</span>
-          <span className='pill'>AWS Amplify</span>
-          <span className='pill'>AWS SES</span>
-          <span className='pill'>AWS API Gateway</span>
-          <span className='pill'>AWS Lambda</span>
+      {websites.map((website) => (
+        <div
+          className='card'
+          key={website.id}
+        >
+          <img
+            className='card-img'
+            src={website.img}
+            alt={website.title}
+            onClick={() => {
+              window.open(website.url, '_blank');
+            }}
+          />
+          <div className='card-content'>
+            <h3>{website.title}</h3>
+            {website.technologies.map((technology) => (
+              <span
+                className='pill'
+                key={technology}
+              >
+                {technology}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };

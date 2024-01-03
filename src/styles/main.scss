@@ -403,7 +403,7 @@ ul {
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: translate(-5px, -5px);
+    transform: translateY(-3px);
   }
 
   &-img {
