@@ -319,6 +319,10 @@ ul {
     display: none;
   }
 
+  .light .nav-menu > .hamburger {
+    background-color: $blue-color-light;
+  }
+
   .nav-menu > .hamburger {
     display: flex;
     flex-direction: column;
