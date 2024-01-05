@@ -8,19 +8,19 @@ export const About = () => {
         <p>
           My name is Cristian Ramírez, I&apos;m full stack web developer based
           in Dublin, Ireland 🇮🇪. I have been designing and developing web
-          applications for over 4 years. I began my career as a freelancer in
-          Chile 🇨🇱 and later I worked for a software development company as a
-          frontend developer.
+          applications for over 4 years. I began my career as a freelancer and
+          later I worked for a software development company as a frontend
+          developer.
         </p>
         <p>
           My knowledge and expertise are result of my passion for learning and
-          practical experience. I&apos;m committed to continuous learning and
-          have a natural ability to collaborate effectively in multidisciplinary
-          teams.
+          my practical experience. I&apos;m committed to continuous learning and
+          I have a natural ability to collaborate effectively in
+          multidisciplinary teams.
         </p>
         <p>
-          My commitment to my clients and my projects is constant, and I always
-          strive for the outcome of my work to be of the highest level.
+          My clients and projects are my top priority, and I bring 100%
+          commitment to everything I do.
         </p>
         <Tools />
       </div>
