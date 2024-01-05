@@ -22,6 +22,15 @@ export const websites = [
   },
 ];
 
+export const games = [
+  {
+    id: 1,
+    title: 'Guess My Number',
+    technologies: ['javascript', 'html', 'css'],
+    url: 'https://crissrayes.github.io/guessnumber',
+    img: '/img/guess_number.png',
+  },
+];
+
 // export const webapps
 // export const apis
-// export const games
