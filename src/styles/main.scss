@@ -43,23 +43,6 @@ $background-light: #ffffff;
   transition: $property $duration $ease;
 }
 
-// @mixin button-styles($color) {
-//   border-radius: 50px;
-//   padding: 5px 20px;
-//   border: 1px solid $color;
-//   background-color: $color;
-//   color: #fff;
-//   cursor: pointer;
-
-//   &:hover {
-//     background-color: darken($color, 10%);
-//   }
-
-//   &:active {
-//     background-color: darken($color, 20%);
-//   }
-// }
-
 @mixin icon-styles {
   font-size: 24px;
   color: #ffffff;
@@ -325,6 +308,45 @@ ul {
   }
 }
 
+/******* Mobile Hamburguer *******/
+@media (max-width: 768px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-menu > ul {
+    display: none;
+  }
+
+  .nav-menu > .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $green-color;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+
+  .nav-menu > .hamburger > .icon {
+    width: 15px;
+    height: 2px;
+    background-color: #fff;
+    margin: 0 2px;
+  }
+
+  .nav-menu.open > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+  }
+}
+
 /******* Header ********/
 .header {
   display: flex;
@@ -367,7 +389,7 @@ ul {
 .projects {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  // justify-content: start;
   align-items: start;
   padding: 0 20px;
   position: relative;
