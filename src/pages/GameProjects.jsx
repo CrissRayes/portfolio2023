@@ -7,15 +7,17 @@ export const GameProjects = () => {
         <div
           className='card'
           key={game.id}
+          onClick={() => {
+            window.open(game.url, '_blank');
+          }}
         >
-          <img
-            className='card-img'
-            src={game.img}
-            alt={game.title}
-            onClick={() => {
-              window.open(game.url, '_blank');
-            }}
-          />
+          <div className='card-img-container'>
+            <img
+              className='card-img'
+              src={game.img}
+              alt={game.title}
+            />
+          </div>
           <div className='card-content'>
             <h3>{game.title}</h3>
             {game.technologies.map((technology) => (
