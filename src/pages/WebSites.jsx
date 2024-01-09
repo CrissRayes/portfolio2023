@@ -7,27 +7,22 @@ export const WebSites = () => {
         <div
           className='card'
           key={website.id}
-          onClick={() => {
-            window.open(website.url, '_blank');
-          }}
         >
-          <div className='card-img-container'>
-            <img
-              className='card-img'
-              src={website.img}
-              alt={website.title}
-            />
-          </div>
+          <img
+            className='card-img'
+            src={website.img}
+            alt={website.title}
+          />
           <div className='card-content'>
-            <h3>{website.title}</h3>
-            {website.technologies.map((technology) => (
-              <span
-                className='pill'
-                key={technology}
-              >
-                {technology}
-              </span>
-            ))}
+            <center>{website.title}</center>
+            <button
+              className='card-btn'
+              onClick={() => {
+                window.open(website.url, '_blank');
+              }}
+            >
+              View Project
+            </button>
           </div>
         </div>
       ))}
