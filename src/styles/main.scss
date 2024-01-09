@@ -5,7 +5,7 @@ $green-color: #75df7d;
 $font-color-dark: #ffffff;
 $font-color-light: #000000;
 $background-dark: #252327;
-$background-light: #ffffff;
+$background-light: #fcfcfc;
 
 /******* Mixins *******/
 @mixin left-bar($bar-color) {
@@ -444,6 +444,15 @@ ul {
     border-radius: 10px;
     width: 120px;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
   }
 
   &-btn {
@@ -458,6 +467,12 @@ ul {
     &:hover {
       color: $background-dark;
       background-color: $green-color;
+      transform: scale(1.1);
+    }
+    &:active {
+      background-color: transparent;
+      color: $green-color;
+      transform: scale(1);
     }
   }
 }
@@ -473,6 +488,15 @@ ul {
   &-btn {
     color: $blue-color-light;
     border: 3px solid $blue-color-light;
+
+    &:hover {
+      color: #fff;
+      background-color: $blue-color-light;
+    }
+    &:active {
+      background-color: transparent;
+      color: $blue-color-light;
+    }
   }
 }
 
