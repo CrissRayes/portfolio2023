@@ -7,7 +7,7 @@ export const Header = () => {
         <strong className='text-subtitle'>Full Stack Web Developer</strong>
         <p>
           {
-            "I love designing and developing cool solutions for people's lives, solving challenges and enjoying the journey."
+            "I'm passionate about web application development with the clear goal of enhancing user experience. I enjoy crafting solutions that are not only functional but also provide an exceptional experience for those who use them"
           }
         </p>
       </div>
