@@ -42,4 +42,19 @@ export const apis = [
   },
 ];
 
-// export const webapps
+export const webapps = [
+  {
+    id: 1,
+    title: 'hairdressing api',
+    technologies: ['node js', 'express js'],
+    url: 'https://github.com/CrissRayes/peluquerias-api',
+    img: '/img/peluquerias-api.png',
+  },
+  {
+    id: 2,
+    title: 'hairdressing client',
+    technologies: ['react js'],
+    url: 'https://github.com/CrissRayes/peluquerias-client',
+    img: '/img/peluquerias-front.png',
+  },
+];
