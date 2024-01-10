@@ -1,7 +1,15 @@
+import { ProjectCard } from '../components/ProjectCard';
+import { apis } from '../data/data';
+
 export const ApiProjects = () => {
   return (
-    <div>
-      <p>Listado de apis desde una api</p>
+    <div className='container-cards'>
+      {apis.map((api) => (
+        <ProjectCard
+          key={api.id}
+          {...api}
+        />
+      ))}
     </div>
   );
 };
