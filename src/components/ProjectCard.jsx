@@ -1,3 +1,5 @@
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 export const ProjectCard = ({ id, img, title, url }) => {
   return (
     <div>
@@ -6,7 +8,7 @@ export const ProjectCard = ({ id, img, title, url }) => {
           className='card'
           key={id}
         >
-          <img
+          <LazyLoadImage
             className='card-img'
             src={img}
             alt={title}
