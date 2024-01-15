@@ -2,6 +2,7 @@
 $blue-color: #0f182b;
 $blue-color-light: #006cac;
 $green-color: #75df7d;
+$orange-color: #fc7d39;
 $font-color-dark: #ffffff;
 $font-color-light: #000000;
 $background-dark: #252327;
@@ -544,6 +545,105 @@ ul {
       margin-top: 1rem;
     }
   }
+}
+
+/******* Contact ********/
+.contact {
+  padding: 0 20px;
+  position: relative;
+
+  margin-bottom: 10rem;
+  @include left-bar($green-color);
+}
+.light .contact {
+  @include left-bar($blue-color-light);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #333;
+
+  & h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &-control {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    min-width: 220px;
+  }
+
+  &-row {
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+}
+
+.form-button {
+  background-color: $green-color;
+  color: #ffffff;
+  border: 1px solid $green-color;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover {
+    color: $background-light;
+    background-color: transparent;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: $green-color;
+  }
+}
+
+.light .form-button {
+  background-color: $blue-color-light;
+  border: 1px solid $blue-color-light;
+  &:hover {
+    color: $background-light;
+    background-color: transparent;
+  }
+
+  &:active {
+    background-color: transparent;
+    color: $blue-color-light;
+  }
+}
+.recaptcha {
+  display: flex;
+  justify-content: center;
+  transform: scale(0.8);
+  margin-bottom: 10px;
+}
+
+.error {
+  font-size: 1rem;
+  color: $orange-color;
+}
+
+.success {
+  font-size: 1rem;
+  color: green;
 }
 
 //******* Footer ********/

@@ -30,6 +30,14 @@ export const Navigation = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink
+            to='/contact'
+            className={linkActivo}
+          >
+            Contact
+          </NavLink>
+        </li>
+        <li>
           <button
             onClick={handleTheme}
             className='button-theme'

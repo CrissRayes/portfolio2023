@@ -12,6 +12,7 @@ import { WebSites } from './pages/WebSites';
 import { GameProjects } from './pages/GameProjects';
 import { ApiProjects } from './pages/ApiProjects';
 import { WebApps } from './pages/WebApps';
+import { Contact } from './pages/Contact';
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -26,6 +27,10 @@ function App() {
             <Route
               path='/'
               element={<About />}
+            />
+            <Route
+              path='/contact'
+              element={<Contact />}
             />
             {/* Ruta proyectos anidados start */}
             <Route

@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaRegEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export const Social = () => {
@@ -15,11 +15,11 @@ export const Social = () => {
             <FaLinkedin className='icon' />
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to={`mailto:cristian.ramirez.cl@gmail.com`}>
             <FaRegEnvelope className='icon' />
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
