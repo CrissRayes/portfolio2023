@@ -1,10 +1,11 @@
 import { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
-  const form = useRef();
+  const formRef = useRef();
+  const captchaRef = useRef(null);
   const [formState, setFormState] = useState('idle');
   const {
     register,
@@ -12,7 +13,6 @@ export const Contact = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const captcha = useRef(null);
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
   const [validCaptcha, setValidCaptcha] = useState(null);
 
@@ -22,7 +22,7 @@ export const Contact = () => {
         .sendForm(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          form.current,
+          formRef.current,
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
         .then(
@@ -46,14 +46,14 @@ export const Contact = () => {
         setTimeout(() => {
           setFormState('idle');
           reset();
-          captcha.current.reset();
+          captchaRef.current.reset();
         }, 2000);
       } catch (error) {
         console.log(error);
         setFormState('idle');
       }
       reset();
-      captcha.current.reset();
+      captchaRef.current.reset();
       setValidCaptcha(null);
     } else {
       setValidCaptcha(false);
@@ -61,12 +61,15 @@ export const Contact = () => {
     }
   });
 
-  const onChange = () => {
-    if (captcha.current.getValue()) {
-      setValidCaptcha(true);
-    } else {
-      setValidCaptcha(false);
-    }
+  const captchaChange = () => {
+    // if (captcha.current.getValue()) {
+    //   setValidCaptcha(true);
+    // } else {
+    //   setValidCaptcha(false);
+    // }
+    captchaRef.current.getValue()
+      ? setValidCaptcha(true)
+      : setValidCaptcha(false);
   };
 
   return (
@@ -74,7 +77,7 @@ export const Contact = () => {
       <form
         className='form'
         onSubmit={onSubmit}
-        ref={form}
+        ref={formRef}
       >
         <h4>Hi! If you want to contact me, please complete the form below.</h4>
         <div className='form-row'>
@@ -149,9 +152,9 @@ export const Contact = () => {
         <div>
           <ReCAPTCHA
             className='recaptcha'
-            ref={captcha}
+            ref={captchaRef}
             sitekey={recaptchaSiteKey}
-            onChange={onChange}
+            onChange={captchaChange}
           />
           {validCaptcha === false && (
             <span className='error'>Please check the captcha</span>
