@@ -1,8 +1,10 @@
 import { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
+  const form = useRef();
   const [formState, setFormState] = useState('idle');
   const {
     register,
@@ -14,33 +16,48 @@ export const Contact = () => {
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
   const [validCaptcha, setValidCaptcha] = useState(null);
 
+  const sendEmail = () => {
+    if (validCaptcha) {
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          form.current,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    }
+  };
+
   const onSubmit = handleSubmit(async (data) => {
     if (validCaptcha) {
       setFormState('submitting');
       try {
-        const response = await fetch(import.meta.env.VITE_AWS_ENDPOINT, {
-          method: 'POST',
-          body: JSON.stringify(data),
-        });
-        if (response.ok) {
-          setFormState('success');
-          setTimeout(() => {
-            setFormState('idle');
-            reset();
-            captcha.current.reset();
-          }, 2000);
-        } else {
-          console.log('error');
+        await sendEmail(data);
+
+        setFormState('success');
+        setTimeout(() => {
           setFormState('idle');
-        }
+          reset();
+          captcha.current.reset();
+        }, 2000);
       } catch (error) {
         console.log(error);
         setFormState('idle');
       }
       reset();
       captcha.current.reset();
+      setValidCaptcha(null);
     } else {
       setValidCaptcha(false);
+      return;
     }
   });
 
@@ -57,6 +74,7 @@ export const Contact = () => {
       <form
         className='form'
         onSubmit={onSubmit}
+        ref={form}
       >
         <h4>Hi! If you want to contact me, please complete the form below.</h4>
         <div className='form-row'>
