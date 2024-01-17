@@ -6,20 +6,23 @@ export const Social = () => {
     <div className='rrss'>
       <ul>
         <li>
-          <Link to='https://github.com/CrissRayes'>
+          <Link
+            to='https://github.com/CrissRayes'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <FaGithub className='icon' />
           </Link>
         </li>
         <li>
-          <Link to='https://www.linkedin.com/in/crissrayes'>
+          <Link
+            to='https://www.linkedin.com/in/crissrayes'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
             <FaLinkedin className='icon' />
           </Link>
         </li>
-        {/* <li>
-          <Link to={`mailto:cristian.ramirez.cl@gmail.com`}>
-            <FaRegEnvelope className='icon' />
-          </Link>
-        </li> */}
       </ul>
     </div>
   );
