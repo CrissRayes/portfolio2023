@@ -62,11 +62,6 @@ export const Contact = () => {
   });
 
   const captchaChange = () => {
-    // if (captcha.current.getValue()) {
-    //   setValidCaptcha(true);
-    // } else {
-    //   setValidCaptcha(false);
-    // }
     captchaRef.current.getValue()
       ? setValidCaptcha(true)
       : setValidCaptcha(false);
