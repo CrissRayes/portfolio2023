@@ -5,7 +5,6 @@ import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const formRef = useRef();
-  const captchaRef = useRef(null);
   const [formState, setFormState] = useState('idle');
   const {
     register,
@@ -13,6 +12,7 @@ export const Contact = () => {
     formState: { errors },
     reset,
   } = useForm();
+  const captchaRef = useRef(null);
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
   const [validCaptcha, setValidCaptcha] = useState(null);
 
