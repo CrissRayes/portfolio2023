@@ -37,7 +37,7 @@ export const apis = [
     id: 1,
     title: 'Marvel Api Client',
     technologies: ['react js'],
-    url: 'https://crissrayes.github.io/fetch-api-marvel',
+    url: 'https://crissrayes.github.io/marvel-api-client/',
     img: '/img/marvel-apiClient.png',
   },
 ];
