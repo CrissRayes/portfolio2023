@@ -1,11 +1,11 @@
 /******* Variables *******/
 $blue-color: #0f182b;
-$blue-color-light: #006cac;
-$green-color: #75df7d;
+$blue-color-light: #0498ec;
+$green-color: #5effb9;
 $orange-color: #fc7d39;
 $font-color-dark: #ffffff;
 $font-color-light: #000000;
-$background-dark: #252327;
+$background-dark: #011e2b;
 $background-light: #fcfcfc;
 
 /******* Mixins *******/
@@ -565,9 +565,9 @@ ul {
   max-width: 500px;
   padding: 20px;
   border-radius: 20px;
-  background-color: #1a1a1a;
+  background-color: #112733;
   color: #ffffff;
-  border: 1px solid #333;
+  // border: 1px solid #333;
 
   & h4 {
     font-size: 2rem;
@@ -580,6 +580,17 @@ ul {
     border: none;
     padding: 10px;
     min-width: 220px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+
+    &::placeholder {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+    }
+
+    &:focus {
+      outline: 2px solid $green-color;
+    }
   }
 
   &-row {
@@ -597,10 +608,16 @@ ul {
   }
 }
 
+.light .form-control {
+  &:focus {
+    outline: 2px solid $blue-color-light;
+  }
+}
+
 .form-button {
-  background-color: $green-color;
+  background-color: #00684a;
   color: #ffffff;
-  border: 1px solid $green-color;
+  border: 1px solid rgb(0, 237, 100);
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
@@ -637,12 +654,12 @@ ul {
 }
 
 .error {
-  font-size: 1rem;
+  font-size: 1.6rem;
   color: $orange-color;
 }
 
 .success {
-  font-size: 1rem;
+  font-size: 1.6rem;
   color: green;
 }
 

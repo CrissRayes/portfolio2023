@@ -130,6 +130,7 @@ export const Contact = () => {
           placeholder='Message'
           cols='30'
           rows='10'
+          style={{ resize: 'none' }}
           {...register('message', {
             required: {
               value: true,
